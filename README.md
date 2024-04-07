@@ -1,3 +1,3 @@
-Please run command "pip install -r requirements. txt" before starting code.
+Please run the command "pip install -r requirements. txt" before starting the code.
 
-python version 3.9.13 to run this on windows.
+python version 3.9.13 may be needed to run this on Windows.
