@@ -11,13 +11,14 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 SKYBLUE = (0, 204, 255)
 PURPLE = (255,0,255)
-g = -9.8
+# g = -9.8
+g = -3.71
 
 WIDTH = 800
 HEIGHT = 640
 
 
-air_coef =  0.1 # coef of frition for air
+air_coef =  0.1 # coef of friction for air
 
 
 class SlingShot(pygame.sprite.Sprite):
@@ -40,7 +41,7 @@ class RigidBall(pygame.sprite.Sprite):
         self.name = name # identifier
         self.r = radius # radius of ball
         self.mass = mass # mass of ball
-        self.mk = 100 # mouse spring constant
+        self.mk = 50 # mouse spring constant
 
         self.CSlist = [] # list to store connect slingshots
 
@@ -334,28 +335,37 @@ def main():
     pygame.display.set_caption('Final Project')
 
     run = True
-
-
-
-    ball = RigidBall("ball1",30,5.,[-100,-200],[0,0],RED)
-    ball2 = RigidBall("ball2",30,10.,[0,-200],[0,0],WHITE)
-    ball3 = RigidBall("ball3",20,10.,[200,-200],[0,0],GREEN)
-    ball4 = RigidBall("ball4",25,10.,[100,-200],[0,0],PURPLE)
-    sling = SlingShot("s1",[-250.,-100.],10,20,250)
-    sling2 = SlingShot("s2",[-200.,-100.],10,20,250)
-    ground = Ground()
-
-
+    
     theWorld = World()
-
-
+    ground = Ground()
     theWorld.addGround(ground)
+    sling = SlingShot("s1",[-250.,-100.],10,20,250)
     theWorld.addSling(sling)
+
+    # sling2 = SlingShot("s2",[-200.,-100.],10,20,250)
     # theWorld.addSling(sling2)
-    theWorld.addBall(ball2)
-    theWorld.addBall(ball)
+
+    # ball = RigidBall("ball1",10,5.,[-100,-200],[0,0],RED)
+    # ball2 = RigidBall("ball2",15,10.,[0,-200],[0,0],WHITE)
+    # ball3 = RigidBall("ball3",20,10.,[200,-200],[0,0],GREEN)
+    # ball4 = RigidBall("ball4",25,10.,[100,-200],[0,0],PURPLE) 
+    # theWorld.addBall(ball2)
+    # theWorld.addBall(ball)
     # theWorld.addBall(ball3)
     # theWorld.addBall(ball4)
+
+    
+    # ball5 = RigidBall("ball5",30,10.,[-100,-200],[0,0],RED)
+    # ball6 = RigidBall("ball6",30,10.,[0,-200],[0,0],WHITE)
+    # theWorld.addBall(ball5)
+    # theWorld.addBall(ball6)
+
+
+    ball7 = RigidBall("ball7",20,1.,[-100,-200],[0,0],GREEN)
+    ball8 = RigidBall("ball8",30,15.,[0,-200],[0,0],PURPLE)
+    theWorld.addBall(ball7)
+    theWorld.addBall(ball8)
+
 
     dt = 0.02
 
